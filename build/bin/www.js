@@ -1,21 +1,21 @@
 #!/usr/bin/env node
 "use strict";
+/**
+ * Module dependencies.
+ */
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * Module dependencies.
- */
+const app_1 = __importDefault(require("../app"));
 const debug_1 = __importDefault(require("debug"));
 const http_1 = __importDefault(require("http"));
-const app_1 = __importDefault(require("../app"));
 const database_1 = require("../database/database");
 const debug = (0, debug_1.default)('bdb:server');
 /**
  * Get port from environment and store in Express.
  */
-const port = normalizePort(process.env.PORT || '9084');
+const port = normalizePort(process.env.PORT || '9086');
 app_1.default.set('port', port);
 debug('Port set to:', port);
 /**

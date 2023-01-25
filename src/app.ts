@@ -1,3 +1,4 @@
+import MotorcycleAccessoriesController from './controllers/MotorcycleAccessoriesController';
 import config from './config';
 import express from 'express';
 import path from 'path';
@@ -28,6 +29,6 @@ app.use(
     })
 );
 
-app.use(fullApiPath);
+app.use(fullApiPath,MotorcycleAccessoriesController);
 
 export default app;
