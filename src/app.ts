@@ -1,3 +1,4 @@
+import GeographyController from './controllers/GeographyController';
 import MotorcycleAccessoriesController from './controllers/MotorcycleAccessoriesController';
 import config from './config';
 import express from 'express';
@@ -29,6 +30,6 @@ app.use(
     })
 );
 
-app.use(fullApiPath,MotorcycleAccessoriesController);
+app.use(fullApiPath,GeographyController);
 
 export default app;
