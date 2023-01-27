@@ -14,7 +14,6 @@ GeographyController.get(
     RequestLogger.basic,
     async (req: Request, res: Response) => {
         try {
-            const brand = +req.params.brand;
             res.status(HTTP_STATUS_CODES.OK).send('HolaMundo');
             console.log('Nadies')
         } catch (err) {
