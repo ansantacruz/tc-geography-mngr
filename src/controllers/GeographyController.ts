@@ -1,6 +1,7 @@
-import { Request, Response, Router } from 'express';
+import { Request, Response, Router, response } from 'express';
 
 import { DebugUtilities } from '../utilities/DebugUtilities';
+import { GeographyService } from '../services/GeographyService';
 import HTTP_STATUS_CODES from 'http-status';
 import RequestLogger from '../utilities/RequestLogger';
 import debugLib from 'debug';
@@ -10,12 +11,12 @@ const GeographyController = Router();
 
 
 GeographyController.get(
-    '/JohnGamboa',
+    '/geographyc/get-search-range',
     RequestLogger.basic,
     async (req: Request, res: Response) => {
         try {
-            const brand = +req.params.brand;
-            res.status(HTTP_STATUS_CODES.OK).send('HolaMundo');
+            const response =  await GeographyService.getRangeByUser();
+            res.status(HTTP_STATUS_CODES.OK).send(response);
             console.log('Nadies')
         } catch (err) {
             const error = DebugUtilities.error(err, 'Error');
@@ -23,7 +24,6 @@ GeographyController.get(
             res.status(error.codeStatusError).send(error.statusError);
         }
     }
-);
-
-
+    
+); 
 export default GeographyController;
