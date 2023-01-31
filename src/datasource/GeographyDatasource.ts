@@ -8,15 +8,15 @@ const debug = debugLib('tc:geographyDataSource');
 export default class GeographyDataSource 
 {
 
-    public static readonly getRangeByUser = async function (): Promise<[]> {
+    public static readonly getRangeByUser = async function (idBuyer:number): Promise<[]> {
         debug('Starts the database query of the search range by user');
         try {
             const result = await executeSQL(
                 `SELECT com_rango_busqueda as rango
                 FROM tr_data_base.comprador 
-                WHERE com_id=1;`,
+                WHERE com_id=$idBuyer;`,
                 QueryTypes.SELECT,
-                {}
+                {idBuyer}
             );
             if (result.length > 0) {
                 return Promise.resolve(result);

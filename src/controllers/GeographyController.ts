@@ -11,11 +11,13 @@ const GeographyController = Router();
 
 
 GeographyController.get(
-    '/geographyc/get-search-range',
+    '/geographyc/get-search-range/:idBuyer',
     RequestLogger.basic,
     async (req: Request, res: Response) => {
         try {
-            const response =  await GeographyService.getRangeByUser();
+            const idBuyer  = +req.params.idBuyer;
+            console.log('idComprador',idBuyer)
+            const response =  await GeographyService.getRangeByUser(idBuyer);
             res.status(HTTP_STATUS_CODES.OK).send(response);
             console.log('Nadies')
         } catch (err) {

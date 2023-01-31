@@ -8,9 +8,9 @@ export class GeographyService {
         throw new Error('Method not implemented.');
     }
 
-    public static async getRangeByUser(): Promise<any> {
+    public static async getRangeByUser(idBuyer:number): Promise<any> {
      try {        
-      const response =  await GeographyDataSource.getRangeByUser();      
+      const response =  await GeographyDataSource.getRangeByUser(idBuyer);      
       return Promise.resolve(response);
      } catch (err) {
         debug('Error trying to obtain motorcycle brands %s ', err);
