@@ -39,11 +39,11 @@ export default class GeographyDataSource
     public static readonly getOverwriteRange = async (): Promise<[]> => {
         debug('Starts the database query of the search products types');
         try {
-            const result = await executeSQL(
+            const result = await executeSQL(. //El query esta mal, select solo es para traer datos, buscar como se hace un update en sql
                 `select * from tr_data_base.comprador;
-                UPDATE tr_data_base.comprador
+                UPDATE tr_data_base.comprador 
                 SET com_rango_busqueda=20 where com_id=2;`,
-                QueryTypes.SELECT,
+                QueryTypes.SELECT,  // reemplazar la palabra select por UPDATE
                 {}
                 );
             if (result.length > 0) {

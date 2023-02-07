@@ -20,7 +20,7 @@ export class GeographyService {
 
     public static async getOverwriteRange(): Promise<[]> {
         try {
-           const response =  await GeographyDataSource.getOverwriteRange();
+           const response =  await GeographyDataSource.getOverwriteRange(); //debe enviar el id del usuario al que se quiere modificar el valor y el nuevo valor 
            return Promise.resolve(response);
         } catch (err) {
            debug('Error trying to obtain products types- %s ', err);

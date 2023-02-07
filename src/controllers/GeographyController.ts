@@ -31,12 +31,12 @@ GeographyController.get(
     
 ); 
 
-GeographyController.get(
+GeographyController.get( // no es un get, es un put
     '/geography/overwriterange',
     RequestLogger.basic,
     async (req: Request, res: Response) => {
         try {
-            const response =  await GeographyService.getOverwriteRange();
+            const response =  await GeographyService.getOverwriteRange(); //debe enviar el request  (verificar metodos post de carlos en el manager de calificaciones y como los consume en postman)
             res.status(HTTP_STATUS_CODES.OK).send(response);
         } catch (err) {
             const error = DebugUtilities.error(err, 'Error');
