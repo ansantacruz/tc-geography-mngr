@@ -17,4 +17,14 @@ export class GeographyService {
         return Promise.reject(err);
      }
     }
+
+    public static async getOverwriteRange(): Promise<[]> {
+        try {
+           const response =  await GeographyDataSource.getOverwriteRange();
+           return Promise.resolve(response);
+        } catch (err) {
+           debug('Error trying to obtain products types- %s ', err);
+           return Promise.reject(err);
+        }
+       }
 }

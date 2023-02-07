@@ -35,4 +35,32 @@ export default class GeographyDataSource
             return Promise.reject({ Code: 'SELECT-RANGE-BY-USER', Reason: err });
         }
     }
+
+    public static readonly getOverwriteRange = async (): Promise<[]> => {
+        debug('Starts the database query of the search products types');
+        try {
+            const result = await executeSQL(
+                `select * from tr_data_base.comprador;
+                UPDATE tr_data_base.comprador
+                SET com_rango_busqueda=20 where com_id=2;`,
+                QueryTypes.SELECT,
+                {}
+                );
+            if (result.length > 0) {
+                return Promise.resolve(result);
+            } else {
+                debug(`${MessageError}`, '404 TR_DATA_BASE');
+                const bodyError = {
+                    CodeError: 'SELECT-SEARCH-PRODUCT-TYPES-404-DB',
+                    Reason: 'BD error TR_DATA_BASE',
+                    StatusCode: '404',
+                };
+                return Promise.reject(bodyError);
+            }
+
+        } catch (err) {
+            debug(`[%s] ${MessageError}`, err);
+            return Promise.reject({ Code: 'SELECT-SEARCH-PRODUCT-TYPES', Reason: err });
+        }
+    }
 }
