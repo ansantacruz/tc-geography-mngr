@@ -1,3 +1,4 @@
+import { IUserAddGeographyResponse } from '../model/IUserAddGeographyRequest';
 import { MessageError } from '../utilities/DebugUtilities';
 import { QueryTypes } from 'sequelize';
 import debugLib from 'debug';
@@ -36,18 +37,25 @@ export default class GeographyDataSource
         }
     }
 
-    public static readonly getOverwriteRange = async (): Promise<[]> => {
-        debug('Starts the database query of the search products types');
+    public static readonly getOverwriteRange = async (rangoBusqueda:number,idComprador:number): Promise<IUserAddGeographyResponse> => {
+        debug('Starts the database query of the update');
         try {
-            const result = await executeSQL(. //El query esta mal, select solo es para traer datos, buscar como se hace un update en sql
-                `select * from tr_data_base.comprador;
-                UPDATE tr_data_base.comprador 
-                SET com_rango_busqueda=20 where com_id=2;`,
-                QueryTypes.SELECT,  // reemplazar la palabra select por UPDATE
-                {}
+            let result;
+            result = await executeSQL( //El query esta mal, select solo es para traer datos, buscar como se hace un update en sql
+                `UPDATE tr_data_base.comprador 
+                SET com_rango_busqueda=$rangoBusqueda where com_id=$idComprador;`,
+                QueryTypes.UPDATE,  // reemplazar la palabra select por UPDATE
+                {rangoBusqueda,idComprador}
                 );
-            if (result.length > 0) {
-                return Promise.resolve(result);
+                console.log(result)
+                if (result) { 
+                    console.log("resultado",result);
+                     const response = {
+                        operationStatus: true,
+                        operationCode: "0000",
+                        operationMessage:"operacion exitosa"
+                    }as IUserAddGeographyResponse;
+                    return Promise.resolve(response);
             } else {
                 debug(`${MessageError}`, '404 TR_DATA_BASE');
                 const bodyError = {
