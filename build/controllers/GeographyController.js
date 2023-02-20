@@ -11,8 +11,6 @@ const RequestLogger_1 = __importDefault(require("../utilities/RequestLogger"));
 const debug_1 = __importDefault(require("debug"));
 const debug = (0, debug_1.default)('tc:GeographyController');
 const GeographyController = (0, express_1.Router)();
-
-
 GeographyController.get('/geographyc/get-search-range/:idBuyer', RequestLogger_1.default.basic, async (req, res) => {
     try {
         const idBuyer = +req.params.idBuyer;
@@ -27,9 +25,10 @@ GeographyController.get('/geographyc/get-search-range/:idBuyer', RequestLogger_1
         res.status(error.codeStatusError).send(error.statusError);
     }
 });
-GeographyController.get('/geography/overwriterange', RequestLogger_1.default.basic, async (req, res) => {
+GeographyController.put(// no es un get, es un put
+'/geography/overwriterange', RequestLogger_1.default.basic, async (req, res) => {
     try {
-        const response = await GeographyService_1.GeographyService.getOverwriteRange();
+        const response = await GeographyService_1.GeographyService.getOverwriteRange(req.body); //debe enviar el request  (verificar metodos post de carlos en el manager de calificaciones y como los consume en postman)
         res.status(http_status_1.default.OK).send(response);
     }
     catch (err) {

@@ -21,9 +21,9 @@ class GeographyService {
             return Promise.reject(err);
         }
     }
-    static async getOverwriteRange() {
+    static async getOverwriteRange(dataRequest) {
         try {
-            const response = await GeographyDatasource_1.default.getOverwriteRange();
+            const response = await GeographyDatasource_1.default.getOverwriteRange(dataRequest.rangoBusqueda, dataRequest.idComprador); //debe enviar el id del usuario al que se quiere modificar el valor y el nuevo valor 
             return Promise.resolve(response);
         }
         catch (err) {

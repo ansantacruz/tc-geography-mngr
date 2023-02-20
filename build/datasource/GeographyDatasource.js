@@ -37,14 +37,23 @@ GeographyDataSource.getRangeByUser = async function (idBuyer) {
         return Promise.reject({ Code: 'SELECT-RANGE-BY-USER', Reason: err });
     }
 };
-GeographyDataSource.getOverwriteRange = async () => {
-    debug('Starts the database query of the search products types');
+GeographyDataSource.getOverwriteRange = async (rangoBusqueda, idComprador) => {
+    debug('Starts the database query of the update');
     try {
-        const result = await (0, database_1.executeSQL)(`select * from tr_data_base.comprador;
-                UPDATE tr_data_base.comprador
-                SET com_rango_busqueda=20 where com_id=2;`, sequelize_1.QueryTypes.SELECT, {});
-        if (result.length > 0) {
-            return Promise.resolve(result);
+        let result;
+        result = await (0, database_1.executeSQL)(//El query esta mal, select solo es para traer datos, buscar como se hace un update en sql
+        `UPDATE tr_data_base.comprador 
+                SET com_rango_busqueda=$rangoBusqueda where com_id=$idComprador;`, sequelize_1.QueryTypes.UPDATE, // reemplazar la palabra select por UPDATE
+        { rangoBusqueda, idComprador });
+        console.log(result);
+        if (result) {
+            console.log("resultado", result);
+            const response = {
+                operationStatus: true,
+                operationCode: "0000",
+                operationMessage: "operacion exitosa"
+            };
+            return Promise.resolve(response);
         }
         else {
             debug(`${DebugUtilities_1.MessageError}`, '404 TR_DATA_BASE');
