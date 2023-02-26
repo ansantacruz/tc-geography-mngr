@@ -1,8 +1,9 @@
 
 export default {
+    PORT: 8083,
     apiPath: '',
-    databaseHost: 'tr-data-base.cl37ixkn2obi.us-east-1.rds.amazonaws.com',
-    databasePass: 'Pr0s3gu1r.2709',
+    databaseHost: '34.134.59.167',
+    databasePass: 'root',
     databasePort: '3306',
     databaseUser: 'root',
     databesePoolAcquiere: '30000',
@@ -20,3 +21,4 @@ export default {
     // PORT: process.env.PORT || '9087',
 
 };
+
