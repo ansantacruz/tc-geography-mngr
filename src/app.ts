@@ -1,4 +1,4 @@
-import MotorcycleAccessoriesController from './controllers/MotorcycleAccessoriesController';
+import MotorcycleAccessoriesController from './controllers/GeographyController';
 import config from './config';
 import express from 'express';
 import path from 'path';
