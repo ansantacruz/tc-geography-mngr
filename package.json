@@ -1,5 +1,5 @@
 {
-  "name": "tr-search-engine-mngr",
+  "name": "tr-geography-mngr",
   "version": "1.0.0",
   "description": "Microservice that manages the different products to build up purchases. ",
   "private": true,
@@ -33,7 +33,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ansantacruz/tr-search-engine-mngr.git"
+    "url": "git+https://github.com/ansantacruz/tr-geography-mngr.git"
   },
   "author": "ansantacruz@uan.edu.co",
   "license": "ISC",
@@ -44,6 +44,7 @@
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "debug": "^4.3.4",
+    "exceljs": "^4.3.0",
     "express": "^4.17.3",
     "express-actuator": "^1.8.1",
     "express-openapi-validate": "^0.6.1",

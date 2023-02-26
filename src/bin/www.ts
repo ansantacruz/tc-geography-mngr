@@ -14,7 +14,7 @@ const debug = debugLib('bdb:server');
  /**
   * Get port from environment and store in Express.
   */
- const port: string | number | false = normalizePort(process.env.PORT || '9086');
+ const port: string | number | false = normalizePort(process.env.PORT || '8083');
  app.set('port', port);
  debug('Port set to:', port);
 

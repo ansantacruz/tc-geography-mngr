@@ -1,10 +1,10 @@
-# tr-search-engine-mngr
+# tr-geography-mngr
 
-This microservice has as goal manage all logic associated to search options' configuration.
+This microservice has as goal manage all logic associated to geography range configuration.
 
 ## Install:
 
- - [ ] Clone that repo: https://github.com/ansantacruz/tr-data-model
+ - [ ] Clone that repo: https://github.com/ansantacruz/tc-geography-mngr
  - [ ] Execute the next commands:
 	        
     `nvm install 16`
@@ -24,7 +24,8 @@ It's very important that you implement perfectly the guide attached below to col
 
 ## Exposed resources  :
 
- 1. **/search-config**:  This resource has as goal return all configuration available in DB for build the search window in the front end. 
+ 1. **/search-config**:  This resource has as goal return all geography range configuration available in DB for build the search window in the front end. 
 
-         `curl --location --request GET 'localhost:9084/V1/search-config'`
+         `curl --location --request GET 'localhost:9086/V1/geographyc/get-search-range'`
+         `curl --location --request PUT 'localhost:9086/V1/geography/overwriterange'`
  
