@@ -1,5 +1,5 @@
 {
-  "name": "tr-geography-mngr",
+  "name": "tc-geography-mngr",
   "version": "1.0.0",
   "description": "Microservice that manages the different products to build up purchases. ",
   "private": true,
@@ -33,7 +33,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ansantacruz/tr-geography-mngr.git"
+    "url": "git+https://github.com/ansantacruz/tc-geography-mngr.git"
   },
   "author": "ansantacruz@uan.edu.co",
   "license": "ISC",

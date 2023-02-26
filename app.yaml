@@ -1,5 +1,5 @@
 runtime: nodejs12
-service: tr-geography-mngr
+service: tc-geography-mngr
 env_variables:
     PORT: 8083
     apiPath: ''

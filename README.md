@@ -1,4 +1,4 @@
-# tr-geography-mngr
+# tc-geography-mngr
 
 This microservice has as goal manage all logic associated to geography range configuration.
 
