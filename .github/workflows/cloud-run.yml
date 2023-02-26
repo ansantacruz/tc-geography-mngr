@@ -23,7 +23,7 @@ on:
 env:
     PROJECT_ID: ${{ secrets.RUN_PROJECT }}
     RUN_REGION: us-central1
-    SERVICE_NAME: tc-geography-mngr
+    SERVICE_NAME: tr-geography-mngr
     PORT: 8083
 jobs:
   deploy:
